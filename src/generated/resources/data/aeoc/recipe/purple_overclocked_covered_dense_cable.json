@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "ae2:purple_covered_dense_cable",
+    "minecraft:redstone",
+    "ae2:certus_quartz_crystal"
+  ],
+  "result": {
+    "id": "aeoc:purple_overclocked_covered_dense_cable"
+  }
+}

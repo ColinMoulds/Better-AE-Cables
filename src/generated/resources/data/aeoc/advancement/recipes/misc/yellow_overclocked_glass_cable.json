@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_base_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ae2:yellow_glass_cable"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aeoc:yellow_overclocked_glass_cable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_base_cable"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aeoc:yellow_overclocked_glass_cable"
+    ]
+  }
+}

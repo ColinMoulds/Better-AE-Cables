@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "aeoc:green_overclocked_smart_dense_cable",
+    "minecraft:diamond",
+    "ae2:fluix_crystal"
+  ],
+  "result": {
+    "id": "aeoc:green_hyperconductive_smart_dense_cable"
+  }
+}
