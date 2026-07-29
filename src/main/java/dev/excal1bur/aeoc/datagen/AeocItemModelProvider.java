@@ -25,14 +25,21 @@ import dev.excal1bur.aeoc.tier.CableShape;
  * texture purely from {@code AECableType} + {@code AEColor}, both of which our {@code Tiered*CablePart}s inherit
  * unchanged from their AE2 base classes. So a Tiered Smart Cable already renders exactly like a normal Smart Cable
  * with zero extra work here -- only the inventory icon (this class) needed anything at all.
+ * <p>
+ * As of this Minecraft version, items no longer bind to a model purely by the {@code models/item/<id>.json} naming
+ * convention -- that file is now just a referenceable model, and a separate {@code assets/<ns>/items/<id>.json}
+ * "item definition" (added by Mojang's item/model rework) is what actually binds an item to it. Without that
+ * binding file the item silently gets no model at all (missing-texture icon). This provider writes both.
  */
 public class AeocItemModelProvider implements DataProvider {
     private static final String AE2_NAMESPACE = "ae2";
 
-    private final PackOutput.PathProvider pathProvider;
+    private final PackOutput.PathProvider modelPathProvider;
+    private final PackOutput.PathProvider itemDefinitionPathProvider;
 
     public AeocItemModelProvider(PackOutput output) {
-        this.pathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");
+        this.modelPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");
+        this.itemDefinitionPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "items");
     }
 
     @Override
@@ -46,14 +53,23 @@ public class AeocItemModelProvider implements DataProvider {
                     if (holder == null) {
                         continue;
                     }
+                    var itemId = holder.getId();
+                    var modelId = Identifier.fromNamespaceAndPath(itemId.getNamespace(), "item/" + itemId.getPath());
 
                     var model = new JsonObject();
                     model.addProperty("parent", "minecraft:item/generated");
                     var textures = new JsonObject();
                     textures.addProperty("layer0", aeocTextureFor(shape, color).toString());
                     model.add("textures", textures);
+                    futures.add(DataProvider.saveStable(cachedOutput, model, modelPathProvider.json(itemId)));
 
-                    futures.add(DataProvider.saveStable(cachedOutput, model, pathProvider.json(holder.getId())));
+                    var itemDefinition = new JsonObject();
+                    var modelRef = new JsonObject();
+                    modelRef.addProperty("type", "minecraft:model");
+                    modelRef.addProperty("model", modelId.toString());
+                    itemDefinition.add("model", modelRef);
+                    futures.add(DataProvider.saveStable(cachedOutput, itemDefinition,
+                            itemDefinitionPathProvider.json(itemId)));
                 }
             }
         }

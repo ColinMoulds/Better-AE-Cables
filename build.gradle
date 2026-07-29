@@ -74,12 +74,22 @@ neoForge {
     }
 }
 
+// Optional dev-environment-only mods: present at runtime for `runClient`/`runServer` so tooltip and recipe-view
+// integrations can actually be playtested, but not pulled in as a dependency by anyone using this mod as a library.
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 dependencies {
     // AE2, published to Modrinth's maven mirror (see settings.gradle repositories).
     // `implementation` (not compileOnly) so ModDevGradle also puts AE2 on the dev-run
     // classpath -- this is a HARD dependency, matching the mod's whole premise.
     implementation "maven.modrinth:ae2:${ae2_version}"
     implementation "maven.modrinth:guideme:${guideme_version}"
+
+    // Dev-only, for playtesting AE2's Jade tooltip integration and JEI recipe visibility.
+    localRuntime "maven.modrinth:jade:${jade_version}"
+    localRuntime "maven.modrinth:jei:${jei_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
