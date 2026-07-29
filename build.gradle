@@ -1,0 +1,125 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.143'
+    id 'idea'
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    // AE2 releases are published to Modrinth's Maven mirror (group: maven.modrinth).
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+    }
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    exclude("src/generated/**/.cache")
+}
+
+base {
+    archivesName = mod_id
+}
+
+// Mojang ships Java 25 to end users in 26.1.2, so mods should target Java 25.
+// NOTE (recon Step 1): this machine currently only has JDK 17 installed, so the
+// workspace cannot actually be built/run here yet. Install a JDK 25 (e.g. the
+// Microsoft build of OpenJDK 25) before attempting Step 2 (prototype).
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        data {
+            clientData()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+        gameTestServer {
+            type = "gameTestServer"
+            // Enables AE2's own @TestPlot/@TestPlotClass scanning (appeng.core.AppEngBase#registerTests), which
+            // picks up dev.sixteenbitforge.aeoc.testplots.AeocTestPlots too since it scans all loaded mods, not just
+            // AE2 itself. Deliberately no `neoforge.enabledGameTestNamespaces` override here -- AE2's plot scanner
+            // registers everything (including ours) under the "ae2" namespace regardless of which mod defined it, so
+            // narrowing to our own mod id would filter our own test out.
+            systemProperty 'appeng.tests', 'true'
+        }
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    // AE2, published to Modrinth's maven mirror (see settings.gradle repositories).
+    // `implementation` (not compileOnly) so ModDevGradle also puts AE2 on the dev-run
+    // classpath -- this is a HARD dependency, matching the mod's whole premise.
+    implementation "maven.modrinth:ae2:${ae2_version}"
+    implementation "maven.modrinth:guideme:${guideme_version}"
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.sixteenbitforge.aeoc.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GridNodeMixin",
+    "GridConnectionMixin",
+    "CablePartMixin"
+  ],
+  "client": [],
+  "server": []
+}

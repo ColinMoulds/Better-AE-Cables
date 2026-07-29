@@ -1,0 +1,40 @@
+license="${mod_license}"
+
+[[mods]] #mandatory
+modId="${mod_id}" #mandatory
+version="${mod_version}" #mandatory
+displayName="${mod_name}" #mandatory
+
+description='''
+Adds higher-tier AE2 cable variants with increased channel capacity:
+Overclocked Smart Cable (16), Overclocked Dense Cable (64), and the
+Hyperconductive Dense Cable (128).
+'''
+
+# Recon Step 1 finding: AE2's channel-capacity math (GridNode#getMaxChannels /
+# GridConnection#getMaxChannels) is not exposed through public API for new tiers,
+# so a small targeted mixin is required. See project notes / recon report.
+[[mixins]]
+config="${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]] #mandatory
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# Hard dependency on AE2 -- this mod only adds cable variants on top of it.
+[[dependencies.${mod_id}]]
+    modId="ae2"
+    type="required"
+    versionRange="[26.1.2,)"
+    ordering="AFTER"
+    side="BOTH"
