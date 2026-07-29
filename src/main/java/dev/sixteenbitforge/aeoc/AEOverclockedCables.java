@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dev.sixteenbitforge.aeoc.config.AeocConfig;
+import dev.sixteenbitforge.aeoc.registration.AEOCCreativeTab;
 import dev.sixteenbitforge.aeoc.registration.AEOCParts;
 
 @Mod(AEOverclockedCables.MOD_ID)
@@ -18,6 +19,7 @@ public class AEOverclockedCables {
 
     public AEOverclockedCables(IEventBus modEventBus, ModContainer modContainer) {
         AEOCParts.ITEMS.register(modEventBus);
+        AEOCCreativeTab.TABS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, AeocConfig.SPEC);
         modEventBus.addListener(this::commonSetup);
     }

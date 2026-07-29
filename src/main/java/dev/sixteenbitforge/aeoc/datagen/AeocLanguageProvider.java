@@ -15,6 +15,8 @@ public class AeocLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        add("itemGroup.aeoc", "AE2 Overclocked Cables");
+
         for (var tier : AeocTiers.ALL) {
             for (var shape : tier.shapes()) {
                 for (var color : AEColor.values()) {

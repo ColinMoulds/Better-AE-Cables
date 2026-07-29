@@ -117,5 +117,6 @@
   "item.aeoc.yellow_overclocked_covered_dense_cable": "Yellow Overclocked Dense Covered Cable",
   "item.aeoc.yellow_overclocked_glass_cable": "Yellow Overclocked Glass Cable",
   "item.aeoc.yellow_overclocked_smart_cable": "Yellow Overclocked Smart Cable",
-  "item.aeoc.yellow_overclocked_smart_dense_cable": "Yellow Overclocked Dense Cable"
+  "item.aeoc.yellow_overclocked_smart_dense_cable": "Yellow Overclocked Dense Cable",
+  "itemGroup.aeoc": "AE2 Overclocked Cables"
 }
