@@ -11,9 +11,6 @@ Overclocked Smart Cable (16), Overclocked Dense Cable (64), and the
 Hyperconductive Dense Cable (128).
 '''
 
-# Recon Step 1 finding: AE2's channel-capacity math (GridNode#getMaxChannels /
-# GridConnection#getMaxChannels) is not exposed through public API for new tiers,
-# so a small targeted mixin is required. See project notes / recon report.
 [[mixins]]
 config="${mod_id}.mixins.json"
 
