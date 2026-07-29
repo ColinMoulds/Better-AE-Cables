@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_base_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ae2:orange_covered_cable"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bac:orange_overclocked_covered_cable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_base_cable"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bac:orange_overclocked_covered_cable"
+    ]
+  }
+}

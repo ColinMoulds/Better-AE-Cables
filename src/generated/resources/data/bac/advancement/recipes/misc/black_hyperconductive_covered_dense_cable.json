@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_base_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bac:black_overclocked_covered_dense_cable"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bac:black_hyperconductive_covered_dense_cable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_base_cable"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bac:black_hyperconductive_covered_dense_cable"
+    ]
+  }
+}

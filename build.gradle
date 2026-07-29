@@ -30,9 +30,6 @@ base {
 }
 
 // Mojang ships Java 25 to end users in 26.1.2, so mods should target Java 25.
-// NOTE (recon Step 1): this machine currently only has JDK 17 installed, so the
-// workspace cannot actually be built/run here yet. Install a JDK 25 (e.g. the
-// Microsoft build of OpenJDK 25) before attempting Step 2 (prototype).
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
@@ -55,7 +52,7 @@ neoForge {
         gameTestServer {
             type = "gameTestServer"
             // Enables AE2's own @TestPlot/@TestPlotClass scanning (appeng.core.AppEngBase#registerTests), which
-            // picks up dev.excal1bur.aeoc.testplots.AeocTestPlots too since it scans all loaded mods, not just
+            // picks up dev.excal1bur.bac.testplots.BacTestPlots too since it scans all loaded mods, not just
             // AE2 itself. Deliberately no `neoforge.enabledGameTestNamespaces` override here -- AE2's plot scanner
             // registers everything (including ours) under the "ae2" namespace regardless of which mod defined it, so
             // narrowing to our own mod id would filter our own test out.

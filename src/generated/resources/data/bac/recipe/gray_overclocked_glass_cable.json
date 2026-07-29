@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "ae2:gray_glass_cable",
+    "minecraft:redstone",
+    "ae2:certus_quartz_crystal"
+  ],
+  "result": {
+    "id": "bac:gray_overclocked_glass_cable"
+  }
+}
