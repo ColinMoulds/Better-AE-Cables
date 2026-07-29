@@ -1,44 +1,76 @@
 # Better AE Cables
 
-A [NeoForge](https://neoforged.net/) addon for [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2) (targeting Minecraft **26.1.2**) that adds higher-tier ME cable variants with increased channel capacity, craftable up from AE2's existing cables.
+Better AE Cables is a NeoForge add-on for Applied Energistics 2 that expands the base cable system with higher-capacity tiers for larger and more demanding AE2 networks. It adds a clear progression path without changing the core feel of AE2.
+
+> Extend your AE2 network with stronger cable tiers, cleaner scaling, and a more flexible infrastructure setup.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tiers](#tiers)
+- [Requirements](#requirements)
+- [Building](#building)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [Links](#links)
+- [License](#license)
+
+## Features
+
+- **Higher-capacity cable tiers** — adds Overclocked and Hyperconductive variants that extend AE2's normal cable scaling.
+- **Full color support** — every supported cable shape is available in the full AE2 color palette.
+- **Dense-tier support** — Hyperconductive cables are exposed through the dense cable line for compatibility with existing AE2 layouts.
+- **Configurable balance** — tune channel capacity scaling and enable unlimited-channel behavior without changing AE2's global channel mode.
+- **AE2-friendly implementation** — built using AE2's public extension points and targeted mixins rather than forking the core pathing system.
 
 ## Tiers
 
 | Tier | Shapes | Channels | Notes |
 |---|---|---|---|
-| Vanilla AE2 | Glass / Covered / Smart (normal), Covered/Smart (dense) | 8 / 32 | Unmodified, for reference |
-| **Overclocked** | Glass, Covered, Smart, Dense Covered, Dense (Smart) | 16 / 64 | Crafted from the matching vanilla AE2 cable |
-| **Hyperconductive** | Dense Covered, Dense (Smart) | 128 | Crafted from the matching **Overclocked** dense cable |
-
-Every shape is available in all 17 AE2 colors. The Hyperconductive tier is dense-only for now (matches the "Hyperconductive *Dense* Cable" naming and its crafting chain); the data model doesn't assume that, so a normal-capacity Hyperconductive line is a natural follow-up.
-
-## Config
-
-- `channelCapacityMultiplier` -- scales just this mod's cable tiers (16/64/128 base), independent of AE2's own channel mode setting.
-- `unlimitedChannels` -- makes just this mod's cable tiers carry unlimited channels, without having to flip AE2's global channel mode to `INFINITE` for every cable in the world.
-
-## How it works
-
-AE2's channel-capacity resolution (`GridNode#getMaxChannels()`) only recognizes two hardcoded tiers (8x/32x, gated by a closed `GridFlags` enum) multiplied by a single global config factor -- there's no public API to add a third tier. This mod uses three small, targeted [Mixin](https://github.com/SpongePowered/Mixin) patches (`GridNode`, `GridConnection`, and the cable's channel-indicator calculation) that check for a custom `IGridNodeService` marker -- attached via AE2's own public `IManagedGridNode#addService` extension point -- instead of duplicating or forking AE2's pathing engine. Vanilla AE2 cables (which never carry that service) are completely unaffected.
-
-See the Javadoc on `OverclockedCableService` and the `dev.excal1bur.bac.mixin` package for details.
+| Vanilla AE2 | Glass / Covered / Smart (normal), Covered / Smart (dense) | 8 / 32 | Reference baseline |
+| Overclocked | Glass, Covered, Smart, Dense Covered, Dense Smart | 16 / 64 | Crafted from the matching vanilla AE2 cable |
+| Hyperconductive | Dense Covered, Dense Smart | 128 | Crafted from the matching Overclocked dense cable |
 
 ## Requirements
 
-- Minecraft 26.1.2
-- NeoForge 26.1.2.x
-- [Applied Energistics 2](https://modrinth.com/mod/ae2) 26.1.10-beta+
-- [GuideME](https://modrinth.com/mod/guideme) (AE2's own hard dependency)
-- **Java 25** to build from source
+| Component | Version |
+|---|---|
+| Minecraft | 26.1.2 |
+| NeoForge | 26.1.2.x |
+| Applied Energistics 2 | 26.1.10-beta or newer |
+| GuideME | 26.1.12-beta or newer |
+| Java | 25 |
 
 ## Building
 
-```
+Run the following from the project root:
+
+```bash
 ./gradlew build
 ```
 
-Run a client for testing with `./gradlew runClient`, or the AE2-integrated GameTest suite (includes this mod's own network tests) with `./gradlew runGameTestServer`.
+Useful development commands:
+
+```bash
+./gradlew runClient
+./gradlew runGameTestServer
+```
+
+## Configuration
+
+The mod exposes a small set of configuration options for tuning its behavior:
+
+- `channelCapacityMultiplier` — scales only this mod's cable tiers independently of AE2's global channel-mode setting.
+- `unlimitedChannels` — allows this mod's cable tiers to carry unlimited channels without changing AE2's global configuration.
+
+## Contributing
+
+Contributions are welcome. If you want to help improve the mod, keep changes focused and include testing details where relevant.
+
+## Links
+
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/better-ae-cables)
 
 ## License
 
-[GNU GPLv3](LICENSE.md). Applied Energistics 2 and GuideME are separate mods with their own licenses; this repo does not redistribute them.
+Better AE Cables is licensed under the [GNU GPLv3](LICENSE.md). Applied Energistics 2 and GuideME remain separate mods with their own licensing and are not redistributed here.
