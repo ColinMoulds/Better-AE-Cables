@@ -1,8 +1,8 @@
-package dev.sixteenbitforge.aeoc.parts;
+package dev.excal1bur.aeoc.parts;
 
 import appeng.items.parts.ColoredPartItem;
 import appeng.parts.networking.SmartCablePart;
-import dev.sixteenbitforge.aeoc.api.OverclockedCableService;
+import dev.excal1bur.aeoc.api.OverclockedCableService;
 
 /** {@link SmartCablePart}, upgraded to report a tier-specific channel capacity. */
 public class TieredSmartCablePart extends SmartCablePart {

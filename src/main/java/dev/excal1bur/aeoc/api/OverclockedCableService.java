@@ -1,8 +1,8 @@
-package dev.sixteenbitforge.aeoc.api;
+package dev.excal1bur.aeoc.api;
 
 import appeng.api.networking.IGridNodeService;
 import appeng.api.networking.pathing.ChannelMode;
-import dev.sixteenbitforge.aeoc.config.AeocConfig;
+import dev.excal1bur.aeoc.config.AeocConfig;
 
 /**
  * Attached to a grid node (via {@code IManagedGridNode#addService}) to mark it as belonging to one of this mod's
@@ -10,7 +10,7 @@ import dev.sixteenbitforge.aeoc.config.AeocConfig;
  * <p>
  * AE2's own {@code GridNode#getMaxChannels()} only recognizes two tiers (8 vs. 32, gated by the closed
  * {@code GridFlags#DENSE_CAPACITY} enum) and multiplies by the single, global {@code ChannelMode} factor. There is no
- * public extension point for additional numeric tiers, so {@code dev.sixteenbitforge.aeoc.mixin} patches the handful
+ * public extension point for additional numeric tiers, so {@code dev.excal1bur.aeoc.mixin} patches the handful
  * of internal methods that read that flag to also check for this service, keeping vanilla AE2 cables completely
  * unaffected.
  */

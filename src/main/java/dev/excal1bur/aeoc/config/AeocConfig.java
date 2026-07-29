@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.config;
+package dev.excal1bur.aeoc.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

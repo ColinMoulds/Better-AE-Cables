@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.tier;
+package dev.excal1bur.aeoc.tier;
 
 import java.util.function.BiFunction;
 
@@ -7,11 +7,11 @@ import appeng.core.definitions.AEParts;
 import appeng.core.definitions.ColoredItemDefinition;
 import appeng.items.parts.ColoredPartItem;
 import appeng.parts.networking.CablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredCoveredCablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredCoveredDenseCablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredGlassCablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredSmartCablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredSmartDenseCablePart;
+import dev.excal1bur.aeoc.parts.TieredCoveredCablePart;
+import dev.excal1bur.aeoc.parts.TieredCoveredDenseCablePart;
+import dev.excal1bur.aeoc.parts.TieredGlassCablePart;
+import dev.excal1bur.aeoc.parts.TieredSmartCablePart;
+import dev.excal1bur.aeoc.parts.TieredSmartDenseCablePart;
 
 /**
  * Mirrors AE2's own five {@code AECableType} shapes (glass/covered/smart, each normal or dense -- AE2 has no dense

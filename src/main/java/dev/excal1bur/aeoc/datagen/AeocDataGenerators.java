@@ -1,12 +1,12 @@
-package dev.sixteenbitforge.aeoc.datagen;
+package dev.excal1bur.aeoc.datagen;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-import dev.sixteenbitforge.aeoc.AEOverclockedCables;
+import dev.excal1bur.aeoc.BetterAECables;
 
-@EventBusSubscriber(modid = AEOverclockedCables.MOD_ID)
+@EventBusSubscriber(modid = BetterAECables.MOD_ID)
 public class AeocDataGenerators {
 
     @SubscribeEvent

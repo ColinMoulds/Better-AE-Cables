@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.mixin;
+package dev.excal1bur.aeoc.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import appeng.api.implementations.parts.ICablePart;
 import appeng.api.parts.IPart;
 import appeng.parts.networking.CablePart;
-import dev.sixteenbitforge.aeoc.api.OverclockedCableService;
-import dev.sixteenbitforge.aeoc.config.AeocConfig;
+import dev.excal1bur.aeoc.api.OverclockedCableService;
+import dev.excal1bur.aeoc.config.AeocConfig;
 
 /**
  * Patches the private {@code CablePart#getVisualChannels(int)} helper that drives the in-world channel-count

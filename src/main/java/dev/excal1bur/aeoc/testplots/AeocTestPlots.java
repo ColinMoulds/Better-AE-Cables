@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.testplots;
+package dev.excal1bur.aeoc.testplots;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,11 +10,11 @@ import appeng.server.testplots.TestPlot;
 import appeng.server.testplots.TestPlotClass;
 import appeng.server.testworld.PlotBuilder;
 
-import dev.sixteenbitforge.aeoc.parts.TieredSmartCablePart;
-import dev.sixteenbitforge.aeoc.parts.TieredSmartDenseCablePart;
-import dev.sixteenbitforge.aeoc.registration.AEOCParts;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
-import dev.sixteenbitforge.aeoc.tier.CableShape;
+import dev.excal1bur.aeoc.parts.TieredSmartCablePart;
+import dev.excal1bur.aeoc.parts.TieredSmartDenseCablePart;
+import dev.excal1bur.aeoc.registration.AEOCParts;
+import dev.excal1bur.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.tier.CableShape;
 
 /**
  * Reuses AE2's own {@code @TestPlot}/GameTest infrastructure (it scans for {@code @TestPlotClass}-annotated classes

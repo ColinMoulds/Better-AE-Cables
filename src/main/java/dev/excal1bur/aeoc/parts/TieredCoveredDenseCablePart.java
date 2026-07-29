@@ -1,8 +1,8 @@
-package dev.sixteenbitforge.aeoc.parts;
+package dev.excal1bur.aeoc.parts;
 
 import appeng.items.parts.ColoredPartItem;
 import appeng.parts.networking.CoveredDenseCablePart;
-import dev.sixteenbitforge.aeoc.api.OverclockedCableService;
+import dev.excal1bur.aeoc.api.OverclockedCableService;
 
 /** {@link CoveredDenseCablePart}, upgraded to report a tier-specific channel capacity. */
 public class TieredCoveredDenseCablePart extends CoveredDenseCablePart {

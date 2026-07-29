@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.datagen;
+package dev.excal1bur.aeoc.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -10,10 +10,10 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.level.ItemLike;
 
 import appeng.api.util.AEColor;
-import dev.sixteenbitforge.aeoc.registration.AEOCParts;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
-import dev.sixteenbitforge.aeoc.tier.CableShape;
-import dev.sixteenbitforge.aeoc.tier.CableTier;
+import dev.excal1bur.aeoc.registration.AEOCParts;
+import dev.excal1bur.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.tier.CableShape;
+import dev.excal1bur.aeoc.tier.CableTier;
 
 /**
  * One shapeless upgrade recipe per registered cable variant: the cable it upgrades from (either the matching vanilla

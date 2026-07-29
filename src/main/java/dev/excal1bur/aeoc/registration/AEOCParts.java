@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.registration;
+package dev.excal1bur.aeoc.registration;
 
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
@@ -14,21 +14,21 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import appeng.api.util.AEColor;
 import appeng.items.parts.ColoredPartItem;
 import appeng.parts.networking.CablePart;
-import dev.sixteenbitforge.aeoc.AEOverclockedCables;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
-import dev.sixteenbitforge.aeoc.tier.CableShape;
-import dev.sixteenbitforge.aeoc.tier.CableTier;
+import dev.excal1bur.aeoc.BetterAECables;
+import dev.excal1bur.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.tier.CableShape;
+import dev.excal1bur.aeoc.tier.CableTier;
 
 /**
  * Registers one {@link ColoredPartItem} per (tier x shape x color) combination -- no hand-written per-variant
- * classes; the actual part classes are the five generic {@code Tiered*CablePart}s in {@code dev.sixteenbitforge.aeoc.parts},
+ * classes; the actual part classes are the five generic {@code Tiered*CablePart}s in {@code dev.excal1bur.aeoc.parts},
  * reused across every tier and color via {@link CableShape#factory()}.
  */
 public final class AEOCParts {
     private AEOCParts() {
     }
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AEOverclockedCables.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BetterAECables.MOD_ID);
 
     private static final Map<CableTier, Map<CableShape, Map<AEColor, DeferredHolder<Item, ? extends ColoredPartItem<?>>>>> BY_TIER_SHAPE_COLOR = new LinkedHashMap<>();
 

@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.mixin;
+package dev.excal1bur.aeoc.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -10,7 +10,7 @@ import appeng.api.networking.IGridNode;
 import appeng.api.networking.pathing.ChannelMode;
 import appeng.me.GridConnection;
 import appeng.me.GridNode;
-import dev.sixteenbitforge.aeoc.api.OverclockedCableService;
+import dev.excal1bur.aeoc.api.OverclockedCableService;
 
 /**
  * Mirrors {@link GridNodeMixin} for {@link GridConnection#getMaxChannels()}, which independently hardcodes

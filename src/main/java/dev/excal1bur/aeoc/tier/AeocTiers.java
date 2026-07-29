@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.tier;
+package dev.excal1bur.aeoc.tier;
 
 import java.util.EnumSet;
 import java.util.List;

@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.datagen;
+package dev.excal1bur.aeoc.datagen;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -12,9 +12,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 
 import appeng.api.util.AEColor;
-import dev.sixteenbitforge.aeoc.registration.AEOCParts;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
-import dev.sixteenbitforge.aeoc.tier.CableShape;
+import dev.excal1bur.aeoc.registration.AEOCParts;
+import dev.excal1bur.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.tier.CableShape;
 
 /**
  * Generates a minimal inventory-icon item model per registered cable variant, pointing at AE2's own existing cable

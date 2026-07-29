@@ -1,4 +1,4 @@
-# AE2 Overclocked Cables
+# Better AE Cables
 
 A [NeoForge](https://neoforged.net/) addon for [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2) (targeting Minecraft **26.1.2**) that adds higher-tier ME cable variants with increased channel capacity, craftable up from AE2's existing cables.
 
@@ -21,7 +21,7 @@ Every shape is available in all 17 AE2 colors. The Hyperconductive tier is dense
 
 AE2's channel-capacity resolution (`GridNode#getMaxChannels()`) only recognizes two hardcoded tiers (8x/32x, gated by a closed `GridFlags` enum) multiplied by a single global config factor -- there's no public API to add a third tier. This mod uses three small, targeted [Mixin](https://github.com/SpongePowered/Mixin) patches (`GridNode`, `GridConnection`, and the cable's channel-indicator calculation) that check for a custom `IGridNodeService` marker -- attached via AE2's own public `IManagedGridNode#addService` extension point -- instead of duplicating or forking AE2's pathing engine. Vanilla AE2 cables (which never carry that service) are completely unaffected.
 
-See [`docs/`](docs/) *(TBD)* for the full recon writeup, or the Javadoc on `OverclockedCableService` and the `dev.sixteenbitforge.aeoc.mixin` package.
+See the Javadoc on `OverclockedCableService` and the `dev.excal1bur.aeoc.mixin` package for details.
 
 ## Requirements
 

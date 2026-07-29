@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.registration;
+package dev.excal1bur.aeoc.registration;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -7,16 +7,16 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import appeng.api.util.AEColor;
-import dev.sixteenbitforge.aeoc.AEOverclockedCables;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
-import dev.sixteenbitforge.aeoc.tier.CableShape;
+import dev.excal1bur.aeoc.BetterAECables;
+import dev.excal1bur.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.tier.CableShape;
 
 public final class AEOCCreativeTab {
     private AEOCCreativeTab() {
     }
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB,
-            AEOverclockedCables.MOD_ID);
+            BetterAECables.MOD_ID);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN = TABS.register("main",
             () -> CreativeModeTab.builder()

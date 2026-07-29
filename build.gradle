@@ -55,7 +55,7 @@ neoForge {
         gameTestServer {
             type = "gameTestServer"
             // Enables AE2's own @TestPlot/@TestPlotClass scanning (appeng.core.AppEngBase#registerTests), which
-            // picks up dev.sixteenbitforge.aeoc.testplots.AeocTestPlots too since it scans all loaded mods, not just
+            // picks up dev.excal1bur.aeoc.testplots.AeocTestPlots too since it scans all loaded mods, not just
             // AE2 itself. Deliberately no `neoforge.enabledGameTestNamespaces` override here -- AE2's plot scanner
             // registers everything (including ours) under the "ae2" namespace regardless of which mod defined it, so
             // narrowing to our own mod id would filter our own test out.

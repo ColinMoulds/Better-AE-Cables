@@ -1,21 +1,21 @@
-package dev.sixteenbitforge.aeoc.datagen;
+package dev.excal1bur.aeoc.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import appeng.api.util.AEColor;
-import dev.sixteenbitforge.aeoc.AEOverclockedCables;
-import dev.sixteenbitforge.aeoc.registration.AEOCParts;
-import dev.sixteenbitforge.aeoc.tier.AeocTiers;
+import dev.excal1bur.aeoc.BetterAECables;
+import dev.excal1bur.aeoc.registration.AEOCParts;
+import dev.excal1bur.aeoc.tier.AeocTiers;
 
 public class AeocLanguageProvider extends LanguageProvider {
     public AeocLanguageProvider(PackOutput output) {
-        super(output, AEOverclockedCables.MOD_ID, "en_us");
+        super(output, BetterAECables.MOD_ID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.aeoc", "AE2 Overclocked Cables");
+        add("itemGroup.aeoc", "Better AE Cables");
 
         for (var tier : AeocTiers.ALL) {
             for (var shape : tier.shapes()) {

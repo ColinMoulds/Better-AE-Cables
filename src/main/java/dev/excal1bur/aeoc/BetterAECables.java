@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc;
+package dev.excal1bur.aeoc;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -8,16 +8,16 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.sixteenbitforge.aeoc.config.AeocConfig;
-import dev.sixteenbitforge.aeoc.registration.AEOCCreativeTab;
-import dev.sixteenbitforge.aeoc.registration.AEOCParts;
+import dev.excal1bur.aeoc.config.AeocConfig;
+import dev.excal1bur.aeoc.registration.AEOCCreativeTab;
+import dev.excal1bur.aeoc.registration.AEOCParts;
 
-@Mod(AEOverclockedCables.MOD_ID)
-public class AEOverclockedCables {
+@Mod(BetterAECables.MOD_ID)
+public class BetterAECables {
     public static final String MOD_ID = "aeoc";
-    private static final Logger LOG = LoggerFactory.getLogger(AEOverclockedCables.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BetterAECables.class);
 
-    public AEOverclockedCables(IEventBus modEventBus, ModContainer modContainer) {
+    public BetterAECables(IEventBus modEventBus, ModContainer modContainer) {
         AEOCParts.ITEMS.register(modEventBus);
         AEOCCreativeTab.TABS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, AeocConfig.SPEC);
@@ -25,6 +25,6 @@ public class AEOverclockedCables {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        LOG.info("AE2 Overclocked Cables loading");
+        LOG.info("Better AE Cables loading");
     }
 }

@@ -1,4 +1,4 @@
-package dev.sixteenbitforge.aeoc.mixin;
+package dev.excal1bur.aeoc.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.pathing.ChannelMode;
 import appeng.me.GridNode;
-import dev.sixteenbitforge.aeoc.api.OverclockedCableService;
+import dev.excal1bur.aeoc.api.OverclockedCableService;
 
 /**
  * Patches {@link GridNode#getMaxChannels()}, the true source of truth for a grid node's channel capacity (see
